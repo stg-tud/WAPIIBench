@@ -1,0 +1,2539 @@
+{
+  "samples": [
+    {
+      "task": "Get the compact records for the first 50 attachments for the project with gid 159874.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/attachments",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "parent": "159874",
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Upload an attachment named \"test.txt\" to the task with gid 12345 with the contents \"This is a test file.\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/attachments",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "multipart/form-data",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "file": "This is a test file.",
+          "name": "test.txt",
+          "parent": "12345",
+          "resource_subtype": "asana"
+        }
+      }
+    },
+    {
+      "task": "Get the full record for the attachment with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/attachments/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the attachment with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/attachments/12345",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a batch request containing two actions: (1) get the task with gid 123, (2) get the project with gid 456.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/batch",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "actions": [
+              {
+                "relative_path": "/tasks/123",
+                "method": "get"
+              },
+              {
+                "relative_path": "/projects/456",
+                "method": "get"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Create a new custom field of type text named \"Priority\" in workspace 1331.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/custom_fields",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "workspace": "1331",
+            "resource_subtype": "text",
+            "name": "Priority"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the metadata for the custom field with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/custom_fields/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the custom field with gid 12345 by setting its name to \"Urgency\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/custom_fields/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Urgency"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the custom field with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/custom_fields/12345",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a new enum option named \"High\" for the custom field with gid 12345, colored red.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/custom_fields/12345/enum_options",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "High",
+            "color": "red"
+          }
+        }
+      }
+    },
+    {
+      "task": "Move the enum option with gid 97285 before the enum option with gid 12345 in the custom field with gid 123456.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/custom_fields/123456/enum_options/insert",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "enum_option": "97285",
+            "before_enum_option": "12345"
+          }
+        }
+      }
+    },
+    {
+      "task": "Update the enum option with gid 124578 by setting its name to \"Critical\" and its enabled status to false.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/enum_options/124578",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Critical",
+            "enabled": false
+          }
+        }
+      }
+    },
+    {
+      "task": "Get all events that occurred since the sync token \"de4774f6915eae04714ca93bb2f5ee81\" for the task with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/events",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "resource": "12345",
+          "sync": "de4774f6915eae04714ca93bb2f5ee81"
+        }
+      }
+    },
+    {
+      "task": "Get all compact goal relationship records for the goal with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goal_relationships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "supported_goal": "12345"
+        }
+      }
+    },
+    {
+      "task": "Get the complete record for the goal relationship with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goal_relationships/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the goal relationship with gid 12345 by setting its contribution_weight to 0.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goal_relationships/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "contribution_weight": "0"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the first 25 compact goal records for the workspace with gid 31326.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "31326",
+          "limit": 25
+        }
+      }
+    },
+    {
+      "task": "Create a new goal named \"Increase sales\" in workspace 12345, owned by user 12345, due on 2024-03-31 and starting on 2024-03-01.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "workspace": "12345",
+            "owner": "12345",
+            "name": "Increase sales",
+            "due_on": "2024-03-31",
+            "start_on": "2024-03-01"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the complete record for the goal with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the goal with gid 12345 by setting its status to \"yellow\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "status": "yellow"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the goal with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Add users with gids 12345 and 67890 as followers to the goal with gid 123456.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/123456/addFollowers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "followers": [
+              "12345",
+              "67890"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Add the goal with gid 67890 as a supporting goal relationship to the goal with gid 12345, with a contribution weight of 1.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345/addSupportingRelationship",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "supporting_resource": "67890",
+            "contribution_weight": "1"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get all compact parent goal records for the goal with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345/parentGoals",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Remove users with gids 12345 and 67890 as followers from the goal with gid 123456.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/123456/removeFollowers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "followers": [
+              "12345",
+              "67890"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the supporting goal relationship from the goal with gid 12345 for the supporting resource with gid 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345/removeSupportingRelationship",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "supporting_resource": "67890"
+          }
+        }
+      }
+    },
+    {
+      "task": "Create a goal metric for goal 12345 with an initial number value of 0, a target number value of 100, and a unit of \"percentage\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345/setMetric",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "initial_number_value": "0",
+            "target_number_value": "100",
+            "unit": "percentage"
+          }
+        }
+      }
+    },
+    {
+      "task": "Update the goal metric for goal 12345 by setting its current number value to 50.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/goals/12345/setMetricCurrentValue",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "current_number_value": "50"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the full record for the job with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/jobs/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create an organization export request for organization with gid 1331.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/organization_exports",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "organization": "1331"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the details of the organization export request with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/organization_exports/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve a list of portfolio memberships for the portfolio with gid '12345' and the user with gid '67890'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolio_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "portfolio": "12345",
+          "user": "67890"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the portfolio membership with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolio_memberships/1331",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve a list of portfolios where the user with gid '14916'  is a member in the workspace with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolio_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "1331",
+          "user": "14916"
+        }
+      }
+    },
+    {
+      "task": "Create a new portfolio named 'My Portfolio' in the workspace with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "My Portfolio",
+            "workspace": "1331"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the portfolio with gid '12345', changing its name to 'Updated Portfolio'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "Updated Portfolio"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Add the custom field with gid '14916' to the portfolio with gid '12345', inserting it after the custom field setting with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/addCustomFieldSetting",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "custom_field": "14916",
+            "insert_after": "1331"
+          }
+        }
+      }
+    },
+    {
+      "task": "Add the item with gid '1331' to the portfolio with gid '12345', inserting it before the item with gid '14916'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/addItem",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "item": "1331",
+            "insert_before": "14916"
+          }
+        }
+      }
+    },
+    {
+      "task": "Add the users with gids '521621' and '621373' as members of the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/addMembers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "members": "521621,621373"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve the custom field settings for the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/custom_field_settings",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the items for the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/items",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve a list of portfolio memberships for the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/portfolio_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Remove the custom field with gid '14916' from the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/removeCustomFieldSetting",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "custom_field": "14916"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the item with gid '1331' from the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/removeItem",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "item": "1331"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the users with gids '521621' and '621373' as members of the portfolio with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/portfolios/12345/removeMembers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "members": "521621,621373"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve the project brief with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_briefs/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the project brief with gid '12345', changing its title to 'Updated Project Brief'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_briefs/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "title": "Updated Project Brief"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the project brief with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_briefs/12345",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the project record for the project membership with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_memberships/1331",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the project status with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_statuses/321654",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the project status with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_statuses/321654",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve a list of project templates for the team with gid '14916'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_templates",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team": "14916"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the project template with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_templates/1331",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Instantiate a project from the project template with gid '1331', using the date variable '1' with a value of '2022-01-01', setting the project name to 'Instantiated Project', making it public, and assigning it to the team with gid '12345'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/project_templates/1331/instantiateProject",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "requested_dates": [
+              {
+                "gid": "1",
+                "value": "2022-01-01"
+              }
+            ],
+            "name": "Instantiated Project",
+            "public": true,
+            "team": "12345"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve a list of projects for the team with gid '14916'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team": "14916"
+        }
+      }
+    },
+    {
+      "task": "Create a new project in the workspace with gid '1331' and the team with gid '14916', set the project name to 'My Project', the archived status to false, and the public status to false.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "workspace": "1331",
+            "team": "14916",
+            "name": "My Project",
+            "archived": false,
+            "public": false
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve the project with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/1331",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the project with gid '1331', changing its name to 'Updated Project'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/1331",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "Updated Project"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the project with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/1331",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Add the custom field with gid '14916' to the project with gid '1331'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/1331/addCustomFieldSetting",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "custom_field": "14916"
+          }
+        }
+      }
+    },
+    {
+      "task": "Add followers with gid '112233' and '445566' to the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/addFollowers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "followers": [
+              "112233",
+              "445566"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Add members with gid '112233', '445566' to the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/addMembers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "members": "112233,445566"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the custom field settings for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/custom_field_settings",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Duplicate the project with gid '778899' with the name 'Duplicated Project' and include notes, task notes and task dependencies in the duplication process. Also, schedule the dates of the tasks to start on '2024-04-20', skipping weekends.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/duplicate",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Duplicated Project",
+            "include": [
+              "notes",
+              "task_notes",
+              "task_dependencies"
+            ],
+            "schedule_dates": {
+              "start_on": "2024-04-20",
+              "should_skip_weekends": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "task": "Create a new project brief named 'New Project Brief' with the html content '<body>This is a <strong>project brief</strong>.</body>' for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/project_briefs",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "title": "New Project Brief",
+            "html_text": "<body>This is a <strong>project brief</strong>.</body>"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the project memberships for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/project_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the project statuses for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/project_statuses",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a new project status with the text 'New project status' and color 'green' for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/project_statuses",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "text": "New project status",
+            "color": "green"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the custom field setting with gid '112233' from the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/removeCustomFieldSetting",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "custom_field": "112233"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove followers with gid '112233', '445566' from the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/removeFollowers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "followers": "112233,445566"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove members with gid '112233', '445566' from the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/removeMembers",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "members": "112233,445566"
+          }
+        }
+      }
+    },
+    {
+      "task": "Save the project with gid '778899' as a template with the name 'New Project Template' and make it public to its team.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/saveAsTemplate",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "New Project Template",
+            "public": true
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the sections for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/sections",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a new section named 'New Section' for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/sections",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "New Section"
+          }
+        }
+      }
+    },
+    {
+      "task": "Move the section with gid '112233' to before the section with gid '445566' in the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/sections/insert",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "project": "778899",
+            "section": "112233",
+            "before_section": "445566"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the task counts for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/task_counts",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the tasks for the project with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/projects/778899/tasks",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the section with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/sections/112233",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the section with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/sections/112233",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the section with gid '112233' with the name 'Updated Section'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/sections/112233",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Updated Section"
+          }
+        }
+      }
+    },
+    {
+      "task": "Add task with gid '445566' to the section with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/sections/112233/addTask",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "task": "445566"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the tasks for the section with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/sections/112233/tasks",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the status updates for the object with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/status_updates",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "parent": "778899"
+        }
+      }
+    },
+    {
+      "task": "Create a status update with the text 'New status update' and type 'on_hold' for the object with gid '778899'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/status_updates",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "text": "New status update",
+            "status_type": "on_hold",
+            "parent": "778899"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the status update with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/status_updates/112233",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the status update with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/status_updates/112233",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the story with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/stories/112233",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the story with gid '112233'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/stories/112233",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the story with gid '112233' with the text 'This is an updated comment.' and pin it.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/stories/112233",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "text": "This is an updated comment.",
+            "is_pinned": true
+          }
+        }
+      }
+    },
+    {
+      "task": "Get all tags.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tags",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a new tag in the workspace with gid '778899' and name 'New Tag'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tags",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "workspace": "778899",
+            "name": "New Tag"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the tag with gid '11235'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tags/11235",
+        "method": "delete",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Get the tag with gid '11235'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tags/11235",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Update the tag with gid '11235'. Set the name to 'Updated Tag Name'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tags/11235",
+        "method": "put",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "Updated Tag Name"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the tasks associated with the tag with gid '11235'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tags/11235/tasks",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Get 50 tasks in the workspace with workspace gid '12345' that are assigned to user with gid '14641'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "assignee": "14641",
+          "workspace": "12345",
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Create a new task with the name 'New Task' in the workspace with gid '12345', assigned to the user with gid '14641'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "workspace": "12345",
+            "assignee": "14641",
+            "name": "New Task"
+          }
+        }
+      }
+    },
+    {
+      "task": "Delete the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654",
+        "method": "delete",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Get the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Update the task with gid '321654'. Set the name to 'Updated Task Name'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654",
+        "method": "put",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "Updated Task Name"
+          }
+        }
+      }
+    },
+    {
+      "task": "Set the task with gid '133713' and the task with gid '184253' as dependencies for the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/addDependencies",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "dependencies": [
+              "133713",
+              "184253"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Set the task with gid '133713' and the task with gid '184253' as dependents for the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/addDependents",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "dependents": [
+              "133713",
+              "184253"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Add the users with gids '13579' and '321654' as followers to the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/addFollowers",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "followers": [
+              "13579",
+              "321654"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Add the task with gid '321654' to the project with gid '13579'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/addProject",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "project": "13579"
+          }
+        }
+      }
+    },
+    {
+      "task": "Add the tag with gid '13579' to the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/addTag",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "tag": "13579"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the dependencies of task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/dependencies",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Get the dependents of task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/dependents",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Duplicate task with gid '321654', including the notes.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/duplicate",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "Duplicated Project",
+            "include": [
+              "notes"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the projects the task with gid '321654' is in.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/projects",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Unlink the tasks with gids '133713' and '184253' as dependencies for the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/removeDependencies",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "dependencies": [
+              "133713",
+              "184253"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Unlink the tasks with gids '133713' and '184253' as dependents for the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/removeDependents",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "dependents": [
+              "133713",
+              "184253"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the users with gids '13579' and '321654' as followers from the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/removeFollowers",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "followers": [
+              "13579",
+              "321654"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the task with gid '321654' from the project with gid '13579'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/removeProject",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "project": "13579"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove the tag with gid '13579' from the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/removeTag",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "tag": "13579"
+          }
+        }
+      }
+    },
+    {
+      "task": "Set the task with gid '987654' as parent for the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/setParent",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "parent": "987654"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the stories of the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/stories",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Create a comment story with the text 'New Comment' on the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/stories",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "text": "New Comment"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the subtasks of task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/subtasks",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Create a new subtask for the task with gid '321654' with the name 'New Subtask'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/subtasks",
+        "method": "post",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "data": {
+            "name": "New Subtask"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the tags of the task with gid '321654'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/tasks/321654/tags",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Get up to 50 team memberships for the team with gid '159874'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/team_memberships",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "team": "159874",
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Get the team membership with gid '724362'.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/team_memberships/724362",
+        "method": "get",
+        "headers": {
+          "Authorization": "Bearer <token>",
+          "Accept": "application/json, text/plain, */*"
+        }
+      }
+    },
+    {
+      "task": "Create a new team called \"Product\" in workspace with id 12345, with a description \"This team is for product development.\" and is visible to everyone in the organization.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Product",
+            "description": "This team is for product development.",
+            "organization": "12345",
+            "visibility": "public"
+          }
+        }
+      }
+    },
+    {
+      "task": "Update team with id 67890 to have the name \"Engineering\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Engineering",
+            "gid": "67890"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve the team with the id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Add the user with id 98765 to the team with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/addUser",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "user": "98765"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve the first 20 project templates associated with team with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/project_templates",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 20
+        }
+      }
+    },
+    {
+      "task": "Get the first 50 projects associated with team with id 12345 showing only archived projects.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/projects",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 50,
+          "archived": true
+        }
+      }
+    },
+    {
+      "task": "Create a new project named \"New Project\" in team 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/projects",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "New Project",
+            "team": "12345"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove user with id 98765 from team with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/removeUser",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "user": "98765"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get all team memberships for team with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/team_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the users in team with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/teams/12345/users",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the first 25 time periods that start on 2023-10-26 in workspace with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/time_periods",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "12345",
+          "start_on": "2023-10-26",
+          "limit": 25
+        }
+      }
+    },
+    {
+      "task": "Get the time period with the id 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/time_periods/67890",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve information about the user task list with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/user_task_lists/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the first 50 tasks in user task list with id 12345, including tasks completed since 2023-10-25T00:00:00.000Z.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/user_task_lists/12345/tasks",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 50,
+          "completed_since": "2023-10-25T00:00:00.000Z"
+        }
+      }
+    },
+    {
+      "task": "Get the first 10 users in workspace with id 12345, sorted by user ID.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "12345",
+          "limit": 10
+        }
+      }
+    },
+    {
+      "task": "Get information about the user with id me.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users/me",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the project favorites of user with id 12345 in workspace 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users/12345/favorites",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "resource_type": "project",
+          "workspace": "67890"
+        }
+      }
+    },
+    {
+      "task": "Get all team memberships for the user with id 12345 in workspace with id 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users/12345/team_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "67890"
+        }
+      }
+    },
+    {
+      "task": "Get the first 10 teams for the user with id 12345 in organization 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users/12345/teams",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 10,
+          "organization": "67890"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the task list for user with id 12345 in workspace 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users/12345/user_task_list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "67890"
+        }
+      }
+    },
+    {
+      "task": "Get all workspace memberships for the user with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/users/12345/workspace_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the first 20 webhooks for resource with id 12345 in workspace with id 67890.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/webhooks",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workspace": "67890",
+          "resource": "12345",
+          "limit": 20
+        }
+      }
+    },
+    {
+      "task": "Create a webhook for resource with id 12345, which sends an event to https://example.com/receive-webhook/7654",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/webhooks",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "resource": "12345",
+            "target": "https://example.com/receive-webhook/7654"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get information about the webhook with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/webhooks/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the webhook with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/webhooks/12345",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the filters of webhook with id 12345. It should only send events for tasks in section 67890 when the task is completed or a dependency is added or removed.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/webhooks/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "filters": [
+              {
+                "resource_type": "task",
+                "resource_subtype": "default_task",
+                "action": "changed",
+                "fields": [
+                  "completed"
+                ]
+              },
+              {
+                "resource_type": "task",
+                "resource_subtype": "default_task",
+                "action": "added"
+              },
+              {
+                "resource_type": "task",
+                "resource_subtype": "default_task",
+                "action": "removed"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "task": "Get the workspace membership with the id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspace_memberships/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get all workspaces for the current user.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve information about the workspace with the id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the name of workspace with id 12345 to \"New Workspace Name\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "New Workspace Name"
+          }
+        }
+      }
+    },
+    {
+      "task": "Add user with id 67890 to workspace with id 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/addUser",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "user": "67890"
+          }
+        }
+      }
+    },
+    {
+      "task": "Retrieve audit log events for workspace with ID 12345. Filter the events to include only those that occurred after 2023-04-01T00:00:00.000Z. Limit the results to 100 events and use offset \"eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9\" to get the next page of results.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/audit_log_events",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "start_at": "2023-04-01T00:00:00.000Z",
+          "limit": 100,
+          "offset": "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9"
+        }
+      }
+    },
+    {
+      "task": "Get all custom fields for the workspace with gid 12345 in compact representation. Include the first 100 results.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/custom_fields",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "Get the compact project records for all projects in workspace 12345. Include the first 50 projects, regardless of archived status.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/projects",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Create a project called \"Test Project\" in workspace 12345 and team 67890.  Set the project's due date to 2024-03-29, and make it public to the team.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/projects",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Test Project",
+            "due_on": "2024-03-29",
+            "team": "67890",
+            "public": true
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove user with gid 11111 from workspace with gid 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/removeUser",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "user": "11111"
+          }
+        }
+      }
+    },
+    {
+      "task": "Get all tags for workspace 12345 in compact representation. Include the first 25 results.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/tags",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 25
+        }
+      }
+    },
+    {
+      "task": "Create a new tag in workspace 12345 with name \"Urgent\" and color \"dark-red\".",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/tags",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "data": {
+            "name": "Urgent",
+            "color": "dark-red",
+            "workspace": "12345"
+          }
+        }
+      }
+    },
+    {
+      "task": "Search for tasks in workspace 12345 that have the text \"Meeting\" in their name or description. Sort the tasks by due date in ascending order.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/tasks/search",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "text": "Meeting",
+          "sort_by": "due_date",
+          "sort_ascending": true
+        }
+      }
+    },
+    {
+      "task": "Get the first 10 teams for workspace with ID 12345.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/teams",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 10
+        }
+      }
+    },
+    {
+      "task": "Perform a typeahead search in workspace 12345 for tasks with the query string \"Report\". Return the first 10 results.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/typeahead",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "resource_type": "task",
+          "query": "Report",
+          "count": 10
+        }
+      }
+    },
+    {
+      "task": "Get the users in workspace 12345.  Return only the gid and name fields for each user.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/users",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "opt_fields": [
+            "gid",
+            "name"
+          ]
+        }
+      }
+    },
+    {
+      "task": "Get the workspace memberships for workspace 12345, filtered by user with gid 67890. Include the first 25 results.",
+      "config": {
+        "url": "https://app.asana.com/api/1.0/workspaces/12345/workspace_memberships",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "user": "67890",
+          "limit": 25
+        }
+      }
+    }
+  ],
+  "api": "asana",
+  "model": "gemini-1.5-pro"
+}

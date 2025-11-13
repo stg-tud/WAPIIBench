@@ -1,0 +1,15 @@
+{
+  "samples": [
+    {
+      "task": "...",
+      "config": {
+        "url": "...",
+        "method": "...",
+        "headers": { ... },
+        "params": { ... },
+        "data": { ... }
+      }
+    },
+    ...
+  ]
+}

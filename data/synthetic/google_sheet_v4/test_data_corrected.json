@@ -1,0 +1,359 @@
+{
+  "samples": [
+    {
+      "task": "Create a new spreadsheet with the title \"My Spreadsheet\" and a single sheet named \"Sheet1\". The sheet should have 10 rows and 5 columns.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "properties": {
+            "title": "My Spreadsheet"
+          },
+          "sheets": [
+            {
+              "properties": {
+                "title": "Sheet1",
+                "gridProperties": {
+                  "rowCount": 10,
+                  "columnCount": 5
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Retrieve the spreadsheet with ID \"<spreadsheetId>\", including grid data.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "includeGridData": true
+        }
+      }
+    },
+    {
+      "task": "Retrieve developer metadata with ID 123 from the spreadsheet with ID \"<spreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/developerMetadata/123",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Search for all developer metadata in spreadsheet with ID \"<spreadsheetId>\" associated with the sheet with ID 456.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/developerMetadata:search",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "dataFilters": [
+            {
+              "developerMetadataLookup": {
+                "locationType": "SHEET",
+                "metadataLocation": {
+                  "sheetId": 456
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Copy the sheet with ID 789 from the spreadsheet with ID \"<spreadsheetId>\" to the spreadsheet with ID \"<destinationSpreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/sheets/789:copyTo",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "destinationSpreadsheetId": "<destinationSpreadsheetId>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the values from range A1:B2 in the spreadsheet with ID \"<spreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values/A1:B2",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Set the value of cell A1 in the spreadsheet with ID \"<spreadsheetId>\" to the string \"Hello, world!\" using user entered format.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values/A1",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "params": {
+          "valueInputOption": "USER_ENTERED"
+        },
+        "data": {
+          "range": "A1",
+          "values": [
+            [
+              "Hello, world!"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "task": "Append the values [\"foo\", \"bar\"] to the first table in range A1:C3 of the spreadsheet with ID \"<spreadsheetId>\", interpreting the input as raw values.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values/A1:C3:append",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "params": {
+          "valueInputOption": "RAW"
+        },
+        "data": {
+          "range": "A1:C3",
+          "values": [
+            [
+              "foo",
+              "bar"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "task": "Clear the values in range A1:B2 of the spreadsheet with ID \"<spreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values/A1:B2:clear",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "task": "Clear the values in ranges A1:B2 and C3:D4 of the spreadsheet with ID \"<spreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values:batchClear",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "ranges": [
+            "A1:B2",
+            "C3:D4"
+          ]
+        }
+      }
+    },
+    {
+      "task": "Clear all values in sheet 0 of spreadsheet \"<spreadsheetId>\" using a GridRange.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values:batchClearByDataFilter",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "dataFilters": [
+            {
+              "gridRange": {
+                "sheetId": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Retrieve the values from ranges A1:B2 and C3:D4 in spreadsheet \"<spreadsheetId>\", with dates and times represented as formatted strings.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values:batchGet",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "ranges": [
+            "A1:B2",
+            "C3:D4"
+          ],
+          "dateTimeRenderOption": "FORMATTED_STRING"
+        }
+      }
+    },
+    {
+      "task": "Retrieve all values in sheet 0 of spreadsheet \"<spreadsheetId>\", with dates and times represented in serial number format. Use a GridRange.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values:batchGetByDataFilter",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "dataFilters": [
+            {
+              "gridRange": {
+                "sheetId": 0
+              }
+            }
+          ],
+          "dateTimeRenderOption": "SERIAL_NUMBER"
+        }
+      }
+    },
+    {
+      "task": "Set the value of cell A1 in the spreadsheet with ID \"<spreadsheetId>\" to the string \"Hello\" and the value of cell B1 to the number 123, interpreting the input as user entered values.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values:batchUpdate",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "valueInputOption": "USER_ENTERED",
+          "data": [
+            {
+              "range": "A1",
+              "values": [
+                [
+                  "Hello"
+                ]
+              ]
+            },
+            {
+              "range": "B1",
+              "values": [
+                [
+                  123
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Set all values in sheet 0 of spreadsheet \"<spreadsheetId>\" to the string \"updated\", interpreting the input as raw values and returning the updated data in the response. Use a GridRange.",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>/values:batchUpdateByDataFilter",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "valueInputOption": "RAW",
+          "includeValuesInResponse": true,
+          "data": [
+            {
+              "dataFilter": {
+                "gridRange": {
+                  "sheetId": 0
+                }
+              },
+              "values": [
+                [
+                  "updated"
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Add a new sheet named \"My Sheet\" to the spreadsheet with ID \"<spreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>:batchUpdate",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "requests": [
+            {
+              "addSheet": {
+                "properties": {
+                  "title": "My Sheet"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Retrieve grid data of the first two rows and columns of sheet 0 from spreadsheet \"<spreadsheetId>\".",
+      "config": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/<spreadsheetId>:getByDataFilter",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "dataFilters": [
+            {
+              "gridRange": {
+                "endColumnIndex": 2,
+                "endRowIndex": 2,
+                "sheetId": 0,
+                "startColumnIndex": 0,
+                "startRowIndex": 0
+              }
+            }
+          ],
+          "includeGridData": true
+        }
+      }
+    }
+  ],
+  "api": "google_sheet_v4",
+  "model": "gemini-1.5-pro"
+}

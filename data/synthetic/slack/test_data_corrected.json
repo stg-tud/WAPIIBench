@@ -1,0 +1,2635 @@
+{
+  "samples": [
+    {
+      "task": "Approve the app with ID \"A12345678\" for installation on the workspace with ID \"T87654321\". The request ID is \"R98765432\".",
+      "config": {
+        "url": "https://slack.com/api/admin.apps.approve",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "app_id": "A12345678",
+          "request_id": "R98765432",
+          "team_id": "T87654321"
+        }
+      }
+    },
+    {
+      "task": "List approved apps for the workspace with ID \"T12345678\", returning a maximum of 100 items.",
+      "config": {
+        "url": "https://slack.com/api/admin.apps.approved.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 100,
+          "team_id": "T12345678"
+        }
+      }
+    },
+    {
+      "task": "List app requests for the workspace with ID \"T98765432\", returning a maximum of 200 items and starting from the cursor \"dGVhbTpDMDYxRkE1UEI=\".",
+      "config": {
+        "url": "https://slack.com/api/admin.apps.requests.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 200,
+          "cursor": "dGVhbTpDMDYxRkE1UEI=",
+          "team_id": "T98765432"
+        }
+      }
+    },
+    {
+      "task": "Restrict the app with ID \"A87654321\" for installation on the workspace with ID \"T12345678\". The request ID is \"R23456789\".",
+      "config": {
+        "url": "https://slack.com/api/admin.apps.restrict",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "app_id": "A87654321",
+          "request_id": "R23456789",
+          "team_id": "T12345678"
+        }
+      }
+    },
+    {
+      "task": "List restricted apps for the organization with ID \"E543216789\", returning a maximum of 50 items.",
+      "config": {
+        "url": "https://slack.com/api/admin.apps.restricted.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 50,
+          "enterprise_id": "E543216789"
+        }
+      }
+    },
+    {
+      "task": "Archive the channel with ID \"C76543210\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.archive",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C76543210"
+        }
+      }
+    },
+    {
+      "task": "Convert the public channel with ID \"C01234567\" to a private channel.",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.convertToPrivate",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C01234567"
+        }
+      }
+    },
+    {
+      "task": "Create a private channel named \"secret-project\" in the workspace with ID \"T78901234\" with the description \"Discussion about a new project\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.create",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "secret-project",
+          "is_private": true,
+          "team_id": "T78901234",
+          "description": "Discussion about a new project"
+        }
+      }
+    },
+    {
+      "task": "Delete the public channel with ID \"C90123456\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.delete",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C90123456"
+        }
+      }
+    },
+    {
+      "task": "Disconnect the shared channel with ID \"C23456789\" from the workspace with ID \"T56789012\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.disconnectShared",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C23456789",
+          "leaving_team_ids": "T56789012"
+        }
+      }
+    },
+    {
+      "task": "List all disconnected channels and their original channel IDs for the workspaces with IDs \"T01234567\", \"T89012345\" and \"T56789012\", returning a maximum of 500 items and starting from the cursor \"dGVhbTpDMUg5UkVTR0w=\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.ekm.listOriginalConnectedChannelInfo",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_ids": "T01234567,T89012345,T56789012",
+          "limit": 500,
+          "cursor": "dGVhbTpDMUg5UkVTR0w="
+        }
+      }
+    },
+    {
+      "task": "Get conversation preferences for the channel with ID \"C34567890\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.getConversationPrefs",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel_id": "C34567890"
+        }
+      }
+    },
+    {
+      "task": "Get all workspaces the channel with ID \"C67890123\" is connected to.",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.getTeams",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel_id": "C67890123"
+        }
+      }
+    },
+    {
+      "task": "Invite the users with IDs \"U12345678\" and \"U90123456\" to the channel with ID \"C45678901\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.invite",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C45678901",
+          "user_ids": "U12345678,U90123456"
+        }
+      }
+    },
+    {
+      "task": "Rename the channel with ID \"C89012345\" to \"new-channel-name\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.rename",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C89012345",
+          "name": "new-channel-name"
+        }
+      }
+    },
+    {
+      "task": "Add the IDP group with ID \"S01234567\" to the allowlist for accessing the private channel with ID \"C56789012\" in the workspace with ID \"T23456789\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.restrictAccess.addGroup",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "group_id": "S01234567",
+          "channel_id": "C56789012",
+          "team_id": "T23456789"
+        }
+      }
+    },
+    {
+      "task": "List all IDP groups linked to the channel with ID \"C90123456\" in the workspace with ID \"T67890123\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.restrictAccess.listGroups",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel_id": "C90123456",
+          "team_id": "T67890123"
+        }
+      }
+    },
+    {
+      "task": "Remove the IDP group with ID \"S87654321\" from the allowlist for accessing the private channel with ID \"C01234567\" in the workspace with ID \"T34567890\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.restrictAccess.removeGroup",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "group_id": "S87654321",
+          "channel_id": "C01234567",
+          "team_id": "T34567890"
+        }
+      }
+    },
+    {
+      "task": "Search for public channels with names containing \"project\" in the workspaces with IDs \"T45678901\" and \"T78901234\". Return a maximum of 10 results, sorted by relevance.",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.search",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_ids": "T45678901,T78901234",
+          "query": "project",
+          "limit": 10,
+          "sort": "relevant"
+        }
+      }
+    },
+    {
+      "task": "Set conversation preferences for the channel with ID \"C12345678\". Allow only users with IDs \"U56789012\" and \"U89012345\" to post messages and allow threading.",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.setConversationPrefs",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C12345678",
+          "prefs": "{\"who_can_post\":{\"type\":[],\"user\":[\"U56789012\",\"U89012345\"]},\"can_thread\":{\"type\":[],\"user\":[]}}"
+        }
+      }
+    },
+    {
+      "task": "Set the channel with ID \"C23456789\" to be shared with the workspaces with IDs \"T90123456\" and \"T01234567\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.setTeams",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C23456789",
+          "target_team_ids": "T90123456,T01234567"
+        }
+      }
+    },
+    {
+      "task": "Unarchive the channel with ID \"C67890123\".",
+      "config": {
+        "url": "https://slack.com/api/admin.conversations.unarchive",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel_id": "C67890123"
+        }
+      }
+    },
+    {
+      "task": "Add an emoji named \"partyparrot\" with the image URL \"https://example.com/partyparrot.gif\".",
+      "config": {
+        "url": "https://slack.com/api/admin.emoji.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "partyparrot",
+          "url": "https://example.com/partyparrot.gif"
+        }
+      }
+    },
+    {
+      "task": "Add an emoji alias named \"parrot\" for the emoji \"partyparrot\".",
+      "config": {
+        "url": "https://slack.com/api/admin.emoji.addAlias",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "parrot",
+          "alias_for": "partyparrot"
+        }
+      }
+    },
+    {
+      "task": "List emoji for the Enterprise Grid organization, returning a maximum of 250 items and starting from the cursor \"dGVhbTpDMDYxRkE1UEI=\".",
+      "config": {
+        "url": "https://slack.com/api/admin.emoji.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 250,
+          "cursor": "dGVhbTpDMDYxRkE1UEI="
+        }
+      }
+    },
+    {
+      "task": "Remove the emoji named \"partyparrot\".",
+      "config": {
+        "url": "https://slack.com/api/admin.emoji.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "partyparrot"
+        }
+      }
+    },
+    {
+      "task": "Rename the emoji named \"dancingbanana\" to \"bananadance\".",
+      "config": {
+        "url": "https://slack.com/api/admin.emoji.rename",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "dancingbanana",
+          "new_name": "bananadance"
+        }
+      }
+    },
+    {
+      "task": "Approve the workspace invite request with ID \"I01234567\" for the workspace with ID \"T87654321\".",
+      "config": {
+        "url": "https://slack.com/api/admin.inviteRequests.approve",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "invite_request_id": "I01234567",
+          "team_id": "T87654321"
+        }
+      }
+    },
+    {
+      "task": "List all approved workspace invite requests for the workspace with ID \"T12345678\", returning a maximum of 100 items.",
+      "config": {
+        "url": "https://slack.com/api/admin.inviteRequests.approved.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T12345678",
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "List all denied workspace invite requests for the workspace with ID \"T98765432\", returning a maximum of 200 items and starting from the cursor \"dGVhbTpDMDYxRkE1UEI=\".",
+      "config": {
+        "url": "https://slack.com/api/admin.inviteRequests.denied.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T98765432",
+          "cursor": "dGVhbTpDMDYxRkE1UEI=",
+          "limit": 200
+        }
+      }
+    },
+    {
+      "task": "Deny the workspace invite request with ID \"I87654321\" for the workspace with ID \"T12345678\".",
+      "config": {
+        "url": "https://slack.com/api/admin.inviteRequests.deny",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "invite_request_id": "I87654321",
+          "team_id": "T12345678"
+        }
+      }
+    },
+    {
+      "task": "List all pending workspace invite requests for workspace T12345, using a limit of 100 results per page and starting at the beginning of the list.",
+      "config": {
+        "url": "https://slack.com/api/admin.inviteRequests.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T12345",
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "List all of the admins on workspace T12345, using a limit of 10 results per page and starting from cursor \"xyz\".",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.admins.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T12345",
+          "limit": 10,
+          "cursor": "xyz"
+        }
+      }
+    },
+    {
+      "task": "Create an Enterprise team called \"Acme Corporation\" with the domain \"acmecorp\" and the description \"The best corporation ever!\" that is open to anyone to join.",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.create",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_name": "Acme Corporation",
+          "team_domain": "acmecorp",
+          "team_description": "The best corporation ever!",
+          "team_discoverability": "open"
+        }
+      }
+    },
+    {
+      "task": "List the first 100 teams in an Enterprise organization starting from the beginning of the list.",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "List all the owners on workspace T12345 starting from cursor \"wxyz\" with a limit of 20.",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.owners.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T12345",
+          "cursor": "wxyz",
+          "limit": 20
+        }
+      }
+    },
+    {
+      "task": "Fetch information about settings in workspace T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.settings.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T12345"
+        }
+      }
+    },
+    {
+      "task": "Set the default channels of workspace T12345 to C12345678 and C87654321.",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.settings.setDefaultChannels",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "channel_ids": [
+            "C12345678",
+            "C87654321"
+          ]
+        }
+      }
+    },
+    {
+      "task": "Set the description of workspace T12345 to \"This is a test workspace.\".",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.settings.setDescription",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "description": "This is a test workspace."
+        }
+      }
+    },
+    {
+      "task": "Set the discoverability of workspace T12345 to \"invite_only\".",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.settings.setDiscoverability",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "discoverability": "invite_only"
+        }
+      }
+    },
+    {
+      "task": "Set the icon of workspace T12345 to the image located at https://example.com/icon.png.",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.settings.setIcon",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "image_url": "https://example.com/icon.png"
+        }
+      }
+    },
+    {
+      "task": "Set the name of workspace T12345 to \"Test Workspace\".",
+      "config": {
+        "url": "https://slack.com/api/admin.teams.settings.setName",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "name": "Test Workspace"
+        }
+      }
+    },
+    {
+      "task": "Add default channels C12345678 and C87654321 to IDP group S12345 in workspace T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.usergroups.addChannels",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup_id": "S12345",
+          "team_id": "T12345",
+          "channel_ids": "C12345678,C87654321"
+        }
+      }
+    },
+    {
+      "task": "Associate workspaces T12345 and T67890 with IDP group S12345, without automatically provisioning accounts.",
+      "config": {
+        "url": "https://slack.com/api/admin.usergroups.addTeams",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup_id": "S12345",
+          "team_ids": "T12345,T67890",
+          "auto_provision": false
+        }
+      }
+    },
+    {
+      "task": "List the channels linked to IDP group S12345 in workspace T12345, including the member count for each channel.",
+      "config": {
+        "url": "https://slack.com/api/admin.usergroups.listChannels",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "usergroup_id": "S12345",
+          "team_id": "T12345",
+          "include_num_members": true
+        }
+      }
+    },
+    {
+      "task": "Remove channels C12345678 and C87654321 from the list of default channels for IDP group S12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.usergroups.removeChannels",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup_id": "S12345",
+          "channel_ids": "C12345678,C87654321"
+        }
+      }
+    },
+    {
+      "task": "Add Enterprise user U12345 to workspace T12345 as a regular user, without adding them to any specific channels.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.assign",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "user_id": "U12345",
+          "is_restricted": false,
+          "is_ultra_restricted": false
+        }
+      }
+    },
+    {
+      "task": "Invite user with email address \"test@example.com\" to workspace T12345 as a regular user, adding them to channels C12345678 and C87654321, with a custom message \"Welcome to the team!\"",
+      "config": {
+        "url": "https://slack.com/api/admin.users.invite",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "email": "test@example.com",
+          "channel_ids": "C12345678,C87654321",
+          "custom_message": "Welcome to the team!",
+          "is_restricted": false,
+          "is_ultra_restricted": false
+        }
+      }
+    },
+    {
+      "task": "List users on workspace T12345, starting from the beginning of the list with a limit of 100 users.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "team_id": "T12345",
+          "cursor": "",
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "Remove user U12345 from workspace T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "user_id": "U12345"
+        }
+      }
+    },
+    {
+      "task": "Invalidate the session with ID 1234567890 on team T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.session.invalidate",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "session_id": 1234567890
+        }
+      }
+    },
+    {
+      "task": "Reset all sessions for user U12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.session.reset",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "user_id": "U12345",
+          "mobile_only": false,
+          "web_only": false
+        }
+      }
+    },
+    {
+      "task": "Make user U12345 an admin on workspace T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.setAdmin",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "user_id": "U12345"
+        }
+      }
+    },
+    {
+      "task": "Set an expiration for guest user U12345 on workspace T12345 to expire at Unix timestamp 1678901234.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.setExpiration",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "user_id": "U12345",
+          "expiration_ts": 1678901234
+        }
+      }
+    },
+    {
+      "task": "Promote user U12345 to owner on workspace T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.setOwner",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "user_id": "U12345"
+        }
+      }
+    },
+    {
+      "task": "Demote user U12345 to regular user on workspace T12345.",
+      "config": {
+        "url": "https://slack.com/api/admin.users.setRegular",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "team_id": "T12345",
+          "user_id": "U12345"
+        }
+      }
+    },
+    {
+      "task": "Check the API calling code, without setting an error or example property.",
+      "config": {
+        "url": "https://slack.com/api/api.test",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get a list of authorizations for the event context \"EC12345678\", using a limit of 50 results per page and starting from cursor \"abc\".",
+      "config": {
+        "url": "https://slack.com/api/apps.event.authorizations.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "event_context": "EC12345678",
+          "cursor": "abc",
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Get information about the permissions of the current app.",
+      "config": {
+        "url": "https://slack.com/api/apps.permissions.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Request additional scopes \"channels:read\" and \"users:read\" using trigger ID \"trigger123\".",
+      "config": {
+        "url": "https://slack.com/api/apps.permissions.request",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "scopes": "channels:read,users:read",
+          "trigger_id": "trigger123"
+        }
+      }
+    },
+    {
+      "task": "List resource grants for the current app, starting from the beginning of the list with a limit of 100 resources.",
+      "config": {
+        "url": "https://slack.com/api/apps.permissions.resources.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "List scopes for the current app.",
+      "config": {
+        "url": "https://slack.com/api/apps.permissions.scopes.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "List user grants and corresponding scopes for this app. Return a maximum of 10 items and start with the first page.",
+      "config": {
+        "url": "https://slack.com/api/apps.permissions.users.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 10
+        }
+      }
+    },
+    {
+      "task": "Request the user scopes 'dnd:write:user' and 'reminders:write:user' for user 'U12345678' using the trigger ID '9876543210.1234567890.abcdefghijklmno1234567890abcdef'.",
+      "config": {
+        "url": "https://slack.com/api/apps.permissions.users.request",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "scopes": "dnd:write:user,reminders:write:user",
+          "trigger_id": "9876543210.1234567890.abcdefghijklmno1234567890abcdef",
+          "user": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "Uninstall the app with client ID '1234567890.12345678' and client secret 'abcdef1234567890abcdef1234567890abcdef'.",
+      "config": {
+        "url": "https://slack.com/api/apps.uninstall",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*"
+        },
+        "params": {
+          "client_id": "1234567890.12345678",
+          "client_secret": "abcdef1234567890abcdef1234567890abcdef"
+        }
+      }
+    },
+    {
+      "task": "Revoke the token '<token>'.",
+      "config": {
+        "url": "https://slack.com/api/auth.revoke",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Check authentication & identity.",
+      "config": {
+        "url": "https://slack.com/api/auth.test",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get information about the bot user 'B12345678'.",
+      "config": {
+        "url": "https://slack.com/api/bots.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "bot": "B12345678"
+        }
+      }
+    },
+    {
+      "task": "Register a new call with the external unique ID 'call-1234', join URL 'https://example.com/call-1234', and title 'Call with Example'.",
+      "config": {
+        "url": "https://slack.com/api/calls.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "external_unique_id": "call-1234",
+          "join_url": "https://example.com/call-1234",
+          "title": "Call with Example"
+        }
+      }
+    },
+    {
+      "task": "End the call with ID 'C12345678' and set the duration to 3600 seconds.",
+      "config": {
+        "url": "https://slack.com/api/calls.end",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "id": "C12345678",
+          "duration": 3600
+        }
+      }
+    },
+    {
+      "task": "Get information about the call with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/calls.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "id": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Add the users 'U12345678' and 'U87654321' as participants to the call with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/calls.participants.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "id": "C12345678",
+          "users": [
+            {
+              "slack_id": "U12345678"
+            },
+            {
+              "slack_id": "U87654321"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Remove the user 'U12345678' as a participant from the call with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/calls.participants.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "id": "C12345678",
+          "users": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "Update the call with ID 'C12345678' to have the title 'Updated Call Title'.",
+      "config": {
+        "url": "https://slack.com/api/calls.update",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "id": "C12345678",
+          "title": "Updated Call Title"
+        }
+      }
+    },
+    {
+      "task": "Delete the message in channel 'C12345678' with timestamp '1678901234.567890'.",
+      "config": {
+        "url": "https://slack.com/api/chat.delete",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "ts": "1678901234.567890"
+        }
+      }
+    },
+    {
+      "task": "Delete the scheduled message with ID 'Q1298393284' in channel 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/chat.deleteScheduledMessage",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "scheduled_message_id": "Q1298393284"
+        }
+      }
+    },
+    {
+      "task": "Retrieve a permalink URL for the message with timestamp '1678901234.567890' in channel 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/chat.getPermalink",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678",
+          "message_ts": "1678901234.567890"
+        }
+      }
+    },
+    {
+      "task": "Share a me message saying 'This is a me message.' to channel 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/chat.meMessage",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "text": "This is a me message."
+        }
+      }
+    },
+    {
+      "task": "Send an ephemeral message saying 'This is an ephemeral message.' to user 'U12345678' in channel 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/chat.postEphemeral",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "user": "U12345678",
+          "text": "This is an ephemeral message."
+        }
+      }
+    },
+    {
+      "task": "Post a message saying 'Hello, world!' to channel 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/chat.postMessage",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "text": "Hello, world!"
+        }
+      }
+    },
+    {
+      "task": "Schedule a message saying 'This is a scheduled message.' to be sent to channel 'C12345678' at timestamp 1678901234.",
+      "config": {
+        "url": "https://slack.com/api/chat.scheduleMessage",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "text": "This is a scheduled message.",
+          "post_at": "1678901234"
+        }
+      }
+    },
+    {
+      "task": "Return a list of scheduled messages in channel 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/chat.scheduledMessages.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Provide custom unfurl behavior for the URL 'https://example.com' in the message with timestamp '1678901234.567890' in channel 'C12345678'. The unfurl should be a simple section block with the text 'This is a custom unfurl.'.",
+      "config": {
+        "url": "https://slack.com/api/chat.unfurl",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "ts": "1678901234.567890",
+          "unfurls": "{\"https://example.com\":{\"blocks\": [{\"type\":\"section\",\"text\":{\"type\":\"plain_text\",\"text\":\"This is a custom unfurl.\"}}]}}"
+        }
+      }
+    },
+    {
+      "task": "Update the message in channel 'C12345678' with timestamp '1678901234.567890' to say 'This is an updated message.'",
+      "config": {
+        "url": "https://slack.com/api/chat.update",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "ts": "1678901234.567890",
+          "text": "This is an updated message."
+        }
+      }
+    },
+    {
+      "task": "Archive the conversation with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.archive",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Close the conversation with ID 'D12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.close",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "D12345678"
+        }
+      }
+    },
+    {
+      "task": "Create a public conversation named 'test-conversation'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.create",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "test-conversation"
+        }
+      }
+    },
+    {
+      "task": "Get the conversation history for conversation with ID 'C12345678', retrieving a maximum of 10 messages.",
+      "config": {
+        "url": "https://slack.com/api/conversations.history",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678",
+          "limit": 10
+        }
+      }
+    },
+    {
+      "task": "Get information about the conversation with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Invite the users 'U12345678' and 'U87654321' to the conversation with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.invite",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "users": "U12345678,U87654321"
+        }
+      }
+    },
+    {
+      "task": "Join the conversation with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.join",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Kick the user 'U12345678' from the conversation with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.kick",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "user": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "Leave the conversation with ID 'C12345678'.",
+      "config": {
+        "url": "https://slack.com/api/conversations.leave",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "List all public and private channels for the current workspace, excluding archived channels.",
+      "config": {
+        "url": "https://slack.com/api/conversations.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "exclude_archived": true,
+          "types": "public_channel,private_channel"
+        }
+      }
+    },
+    {
+      "task": "Mark the message with the timestamp 1234567890.123456 as the last read message in the channel C12345678.",
+      "config": {
+        "url": "https://slack.com/api/conversations.mark",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "ts": 1234567890.123456
+        }
+      }
+    },
+    {
+      "task": "Retrieve the first 100 members of the channel G12345678.",
+      "config": {
+        "url": "https://slack.com/api/conversations.members",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "G12345678",
+          "limit": 100
+        }
+      }
+    },
+    {
+      "task": "Open a direct message with the user U12345678.",
+      "config": {
+        "url": "https://slack.com/api/conversations.open",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "users": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "Rename the channel C12345678 to \"new-name\".",
+      "config": {
+        "url": "https://slack.com/api/conversations.rename",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "name": "new-name"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the thread of messages posted to the channel C12345678, starting with the message with timestamp 1234567890.123456.",
+      "config": {
+        "url": "https://slack.com/api/conversations.replies",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678",
+          "ts": 1234567890.123456
+        }
+      }
+    },
+    {
+      "task": "Set the purpose of the channel C12345678 to \"new-purpose\".",
+      "config": {
+        "url": "https://slack.com/api/conversations.setPurpose",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "purpose": "new-purpose"
+        }
+      }
+    },
+    {
+      "task": "Set the topic of the channel C12345678 to \"new-topic\".",
+      "config": {
+        "url": "https://slack.com/api/conversations.setTopic",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "topic": "new-topic"
+        }
+      }
+    },
+    {
+      "task": "Unarchive the channel C12345678.",
+      "config": {
+        "url": "https://slack.com/api/conversations.unarchive",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Open a dialog defined by { \"callback_id\": \"ryde-46e2b0\", \"title\": \"Request a Ride\", \"submit_label\": \"Request\", \"elements\": [ { \"type\": \"text\", \"label\": \"Pickup Location\", \"name\": \"pickup_location\" }, { \"type\": \"text\", \"label\": \"Dropoff Location\", \"name\": \"dropoff_location\" } ] } triggered by trigger ID \"123.456.abc\".",
+      "config": {
+        "url": "https://slack.com/api/dialog.open",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "trigger_id": "123.456.abc",
+          "dialog": "{\"callback_id\": \"ryde-46e2b0\", \"title\": \"Request a Ride\", \"submit_label\": \"Request\", \"elements\": [ { \"type\": \"text\", \"label\": \"Pickup Location\", \"name\": \"pickup_location\" }, { \"type\": \"text\", \"label\": \"Dropoff Location\", \"name\": \"dropoff_location\" } ] }"
+        }
+      }
+    },
+    {
+      "task": "End the Do Not Disturb session for the current user.",
+      "config": {
+        "url": "https://slack.com/api/dnd.endDnd",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "task": "End the snooze mode for the current user.",
+      "config": {
+        "url": "https://slack.com/api/dnd.endSnooze",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the Do Not Disturb status for the current user.",
+      "config": {
+        "url": "https://slack.com/api/dnd.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Set the snooze duration to 30 minutes for the current user.",
+      "config": {
+        "url": "https://slack.com/api/dnd.setSnooze",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "num_minutes": "30"
+        }
+      }
+    },
+    {
+      "task": "Get the Do Not Disturb status for the user U12345678 and user W12345678.",
+      "config": {
+        "url": "https://slack.com/api/dnd.teamInfo",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "users": "U12345678,W12345678"
+        }
+      }
+    },
+    {
+      "task": "List all custom emoji for the current workspace.",
+      "config": {
+        "url": "https://slack.com/api/emoji.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Delete the file comment with ID Fc12345678 from the file F12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.comments.delete",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "file": "F12345678",
+          "id": "Fc12345678"
+        }
+      }
+    },
+    {
+      "task": "Delete the file with ID F12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.delete",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "file": "F12345678"
+        }
+      }
+    },
+    {
+      "task": "Get information about the file with ID F12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "file": "F12345678"
+        }
+      }
+    },
+    {
+      "task": "List all files shared in the channel C12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Add a remote file with title \"Foo\", external ID \"ext-id-123\", and external URL \"https://example.com/remote-file.pdf\".",
+      "config": {
+        "url": "https://slack.com/api/files.remote.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "external_id": "ext-id-123",
+          "external_url": "https://example.com/remote-file.pdf",
+          "title": "Foo"
+        }
+      }
+    },
+    {
+      "task": "Get information about the remote file with external ID \"ext-id-123\".",
+      "config": {
+        "url": "https://slack.com/api/files.remote.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "external_id": "ext-id-123"
+        }
+      }
+    },
+    {
+      "task": "List the first 50 remote files added to the channel C12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.remote.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678",
+          "limit": 50
+        }
+      }
+    },
+    {
+      "task": "Remove the remote file with ID F12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.remote.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "file": "F12345678"
+        }
+      }
+    },
+    {
+      "task": "Share the remote file with external ID \"ext-id-123\" in the channels C12345678,C87654321.",
+      "config": {
+        "url": "https://slack.com/api/files.remote.share",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "external_id": "ext-id-123",
+          "channels": "C12345678,C87654321"
+        }
+      }
+    },
+    {
+      "task": "Update the remote file with external ID \"ext-id-123\" and set its title to \"New Title\".",
+      "config": {
+        "url": "https://slack.com/api/files.remote.update",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "external_id": "ext-id-123",
+          "title": "New Title"
+        }
+      }
+    },
+    {
+      "task": "Revoke the public URL for the file with ID F12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.revokePublicURL",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "file": "F12345678"
+        }
+      }
+    },
+    {
+      "task": "Enable public sharing for the file with ID F12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.sharedPublicURL",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "file": "F12345678"
+        }
+      }
+    },
+    {
+      "task": "Upload a file named \"my_file.txt\" with the content \"This is the content of the file.\" to the channel C12345678.",
+      "config": {
+        "url": "https://slack.com/api/files.upload",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channels": "C12345678",
+          "content": "This is the content of the file.",
+          "filename": "my_file.txt"
+        }
+      }
+    },
+    {
+      "task": "For Enterprise Grid workspace T12345678, map local user IDs U12345678,U87654321 to their corresponding global IDs.",
+      "config": {
+        "url": "https://slack.com/api/migration.exchange",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "users": "U12345678,U87654321",
+          "team_id": "T12345678"
+        }
+      }
+    },
+    {
+      "task": "Exchange temporary OAuth verifier code \"abcdefg\" for an access token using client ID \"1234567890.12345678\" and client secret \"abcdefghijklmn\". Use the legacy method for classic Slack apps.",
+      "config": {
+        "url": "https://slack.com/api/oauth.access",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "params": {
+          "client_id": "1234567890.12345678",
+          "client_secret": "abcdefghijklmn",
+          "code": "abcdefg"
+        }
+      }
+    },
+    {
+      "task": "Exchange a temporary OAuth verifier code for a workspace token for client ID \"<client_id>\" and client secret \"<client_secret>\". The code is \"<code_value>\" and the redirect URI is \"<redirect_uri_value>\". Use the legacy method for classic Slack apps.",
+      "config": {
+        "url": "https://slack.com/api/oauth.token",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "params": {
+          "client_id": "<client_id>",
+          "client_secret": "<client_secret>",
+          "code": "<code_value>",
+          "redirect_uri": "<redirect_uri_value>"
+        }
+      }
+    },
+    {
+      "task": "Exchange a temporary OAuth verifier code \"<code_value>\" for an access token for client ID \"<client_id>\" and client secret \"<client_secret>\".",
+      "config": {
+        "url": "https://slack.com/api/oauth.v2.access",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        "params": {
+          "client_id": "<client_id>",
+          "client_secret": "<client_secret>",
+          "code": "<code_value>"
+        }
+      }
+    },
+    {
+      "task": "Pin the item with timestamp \"1234567890.123456\" to the channel with ID \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/pins.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "List the pinned items for the channel with ID \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/pins.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678"
+        }
+      }
+    },
+    {
+      "task": "Remove the pin for the item with timestamp \"1234567890.123456\" from the channel with ID \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/pins.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "Add the reaction \"thumbsup\" to the item with timestamp \"1234567890.123456\" in channel \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/reactions.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "name": "thumbsup",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "Get reactions for the message with timestamp \"1234567890.123456\" in channel \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/reactions.get",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "channel": "C12345678",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "List all reactions made by the currently authenticated user.",
+      "config": {
+        "url": "https://slack.com/api/reactions.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Remove the reaction \"thumbsup\" from the message with timestamp \"1234567890.123456\" in channel \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/reactions.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "name": "thumbsup",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "Create a reminder with the text \"<reminder_text>\" that should occur in 5 minutes.",
+      "config": {
+        "url": "https://slack.com/api/reminders.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "text": "<reminder_text>",
+          "time": "in 5 minutes"
+        }
+      }
+    },
+    {
+      "task": "Mark the reminder with ID \"Rm12345678\" as complete.",
+      "config": {
+        "url": "https://slack.com/api/reminders.complete",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "reminder": "Rm12345678"
+        }
+      }
+    },
+    {
+      "task": "Delete the reminder with ID \"Rm12345678\".",
+      "config": {
+        "url": "https://slack.com/api/reminders.delete",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "reminder": "Rm12345678"
+        }
+      }
+    },
+    {
+      "task": "Get information about the reminder with ID \"Rm12345678\".",
+      "config": {
+        "url": "https://slack.com/api/reminders.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "reminder": "Rm12345678"
+        }
+      }
+    },
+    {
+      "task": "List all reminders created by or for the currently authenticated user.",
+      "config": {
+        "url": "https://slack.com/api/reminders.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Start a Real Time Messaging session.",
+      "config": {
+        "url": "https://slack.com/api/rtm.connect",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Search for messages matching the query \"meaning of life\".",
+      "config": {
+        "url": "https://slack.com/api/search.messages",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "query": "meaning of life"
+        }
+      }
+    },
+    {
+      "task": "Add a star to the message with timestamp \"1234567890.123456\" in the channel with ID \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/stars.add",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "List all starred items for the currently authenticated user.",
+      "config": {
+        "url": "https://slack.com/api/stars.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Remove the star from the message with timestamp \"1234567890.123456\" in the channel with ID \"C12345678\".",
+      "config": {
+        "url": "https://slack.com/api/stars.remove",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "channel": "C12345678",
+          "timestamp": "1234567890.123456"
+        }
+      }
+    },
+    {
+      "task": "Get the access logs for the current team.",
+      "config": {
+        "url": "https://slack.com/api/team.accessLogs",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get billable users information for the current team.",
+      "config": {
+        "url": "https://slack.com/api/team.billableInfo",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get information about the current team.",
+      "config": {
+        "url": "https://slack.com/api/team.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get the integration logs for the current team.",
+      "config": {
+        "url": "https://slack.com/api/team.integrationLogs",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Retrieve the current team's profile.",
+      "config": {
+        "url": "https://slack.com/api/team.profile.get",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a User Group with the name \"<usergroup_name>\" and the handle \"<usergroup_handle>\".",
+      "config": {
+        "url": "https://slack.com/api/usergroups.create",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "name": "<usergroup_name>",
+          "handle": "<usergroup_handle>"
+        }
+      }
+    },
+    {
+      "task": "Disable the User Group with ID \"S12345678\".",
+      "config": {
+        "url": "https://slack.com/api/usergroups.disable",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup": "S12345678"
+        }
+      }
+    },
+    {
+      "task": "Enable the User Group with ID \"S12345678\".",
+      "config": {
+        "url": "https://slack.com/api/usergroups.enable",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup": "S12345678"
+        }
+      }
+    },
+    {
+      "task": "List all User Groups for the current team.",
+      "config": {
+        "url": "https://slack.com/api/usergroups.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update the User Group with ID \"S12345678\" to have the name \"<new_usergroup_name>\" and the handle \"<new_usergroup_handle>\".",
+      "config": {
+        "url": "https://slack.com/api/usergroups.update",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup": "S12345678",
+          "name": "<new_usergroup_name>",
+          "handle": "<new_usergroup_handle>"
+        }
+      }
+    },
+    {
+      "task": "List all users in the User Group with ID \"S12345678\".",
+      "config": {
+        "url": "https://slack.com/api/usergroups.users.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "usergroup": "S12345678"
+        }
+      }
+    },
+    {
+      "task": "Update the list of users for the User Group with ID \"S12345678\" to include only the user with ID \"U12345678\".",
+      "config": {
+        "url": "https://slack.com/api/usergroups.users.update",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "usergroup": "S12345678",
+          "users": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "List the first 10 conversations of type 'im' that the calling user may access.",
+      "config": {
+        "url": "https://slack.com/api/users.conversations",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "types": "im",
+          "limit": 10
+        }
+      }
+    },
+    {
+      "task": "Delete the user profile photo of the calling user.",
+      "config": {
+        "url": "https://slack.com/api/users.deletePhoto",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "task": "Get the presence information of the user with ID 'U12345678'.",
+      "config": {
+        "url": "https://slack.com/api/users.getPresence",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "user": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "Get the identity of the calling user.",
+      "config": {
+        "url": "https://slack.com/api/users.identity",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get information about the user with ID 'U12345678'.",
+      "config": {
+        "url": "https://slack.com/api/users.info",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "user": "U12345678"
+        }
+      }
+    },
+    {
+      "task": "List the first 20 users in the Slack team.",
+      "config": {
+        "url": "https://slack.com/api/users.list",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "limit": 20
+        }
+      }
+    },
+    {
+      "task": "Find the user with the email address 'user@example.com'.",
+      "config": {
+        "url": "https://slack.com/api/users.lookupByEmail",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "email": "user@example.com"
+        }
+      }
+    },
+    {
+      "task": "Get the profile information for the user with ID 'U12345678', including labels for custom profile fields.",
+      "config": {
+        "url": "https://slack.com/api/users.profile.get",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "user": "U12345678",
+          "include_labels": true
+        }
+      }
+    },
+    {
+      "task": "Set the profile information for the calling user. Update the status text to 'Out for lunch' and the status emoji to ':sandwich:'.",
+      "config": {
+        "url": "https://slack.com/api/users.profile.set",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "profile": {
+            "status_text": "Out for lunch",
+            "status_emoji": ":sandwich:"
+          }
+        }
+      }
+    },
+    {
+      "task": "Remove calling users away status.",
+      "config": {
+        "url": "https://slack.com/api/users.setPresence",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "presence": "auto"
+        }
+      }
+    },
+    {
+      "task": "Set the profile photo for the calling user. Use <image data> for the file contents.",
+      "config": {
+        "url": "https://slack.com/api/users.setPhoto",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "image": "<image data>"
+        }
+      }
+    },
+    {
+      "task": "Set the presence of the calling user to 'away'.",
+      "config": {
+        "url": "https://slack.com/api/users.setPresence",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "data": {
+          "presence": "away"
+        }
+      }
+    },
+    {
+      "task": "Open a modal view for the user that triggered the action with ID 'T12345678'. The view should have the callback ID 'view_1'. The view should have title \"My Modal\".",
+      "config": {
+        "url": "https://slack.com/api/views.open",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "trigger_id": "T12345678",
+          "view": "{\"type\": \"modal\", \"callback_id\": \"view_1\", \"title\": {\"type\": \"plain_text\", \"text\": \"My Modal\"}, \"blocks\": []}"
+        }
+      }
+    },
+    {
+      "task": "Publish a home tab view for the user with ID 'U12345678'. The view should have the callback ID 'home_view_1'.",
+      "config": {
+        "url": "https://slack.com/api/views.publish",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "user_id": "U12345678",
+          "view": "{\"type\": \"home\", \"callback_id\": \"home_view_1\", \"blocks\": []}"
+        }
+      }
+    },
+    {
+      "task": "Push a modal view onto the stack of the root view associated with the trigger ID 'T12345678'. The view should have the callback ID 'view_2'.",
+      "config": {
+        "url": "https://slack.com/api/views.push",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "trigger_id": "T12345678",
+          "view": "{\"type\": \"modal\", \"callback_id\": \"view_2\", \"title\": {\"type\": \"plain_text\", \"text\": \"My Pushed Modal\"}, \"blocks\": []}"
+        }
+      }
+    },
+    {
+      "task": "Update the existing view with ID 'V12345678'. Change the title to 'Updated Modal'.",
+      "config": {
+        "url": "https://slack.com/api/views.update",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "view_id": "V12345678",
+          "view": "{\"type\": \"modal\", \"title\": {\"type\": \"plain_text\", \"text\": \"Updated Modal\"}, \"blocks\": []}"
+        }
+      }
+    },
+    {
+      "task": "Indicate that the workflow step with execution ID 'W12345678' has completed successfully.",
+      "config": {
+        "url": "https://slack.com/api/workflows.stepCompleted",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workflow_step_execute_id": "W12345678"
+        }
+      }
+    },
+    {
+      "task": "Indicate that the workflow step with execution ID 'W12345678' has failed. Include the error message 'Something went wrong.'.",
+      "config": {
+        "url": "https://slack.com/api/workflows.stepFailed",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "workflow_step_execute_id": "W12345678",
+          "error": "{\"message\": \"Something went wrong.\"}"
+        }
+      }
+    },
+    {
+      "task": "Update the configuration for the workflow step with edit ID 'W12345678' such that the step name is now \"New Step Name\".",
+      "config": {
+        "url": "https://slack.com/api/workflows.updateStep",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>",
+          "Content-Type": "application/json"
+        },
+        "params": {
+          "workflow_step_edit_id": "W12345678",
+          "step_name": "New Step Name"
+        }
+      }
+    }
+  ],
+  "api": "slack",
+  "model": "gemini-1.5-pro"
+}

@@ -1,0 +1,578 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Swagger Petstore
+  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: Swagger API Team
+    email: apiteam@swagger.io
+    url: http://swagger.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://petstore.swagger.io/v2
+paths:
+  /pets:
+    get:
+      description: Returns all pets from the system that the user has access to
+      operationId: findPets
+      parameters:
+        - name: tags
+          in: query
+          description: tags to filter by
+          required: false
+          style: form
+          schema:
+            type: array
+            items:
+              type: string
+        - name: limit
+          in: query
+          description: maximum number of results to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Creates a new pet in the store. Duplicates are allowed
+      operationId: addPet
+      requestBody:
+        description: Pet to add to the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPet'
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /pets/{id}:
+    get:
+      description: Returns a user based on a single ID, if the user does not have access to the pet
+      operationId: find pet by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Deletes a single pet based on the ID supplied
+      operationId: deletePet
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: pet deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /pets-secure/{id}:
+    get:
+      description: Returns a user based on a single ID, if the user does not have access to the VIP pet which requires a secure access
+      operationId: find VIP pet by id
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to fetch
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      description: Updates a single pet based on the ID supplied
+      operationId: update VIP Pet
+      security:
+        - ApiKeyAuth: [ ]
+        - BasicAuth: [ ]
+      requestBody:
+        description: Pet to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPet'
+      parameters:
+        - name: id
+          in: path
+          description: ID of pet to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: pet update
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Deletes a single pet based on the ID supplied
+      operationId: delete VIP Pet
+      security:
+        - ApiKeyAuth: [ ]
+      parameters:
+        - name: id
+          in: path
+          description: ID of the pet to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: pet deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /foods:
+    post:
+      description: Creates a new food in the store. Duplicates are allowed
+      operationId: addFood
+      requestBody:
+        description: Food to add to the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewFood'
+      responses:
+        '200':
+          description: food response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /customers:
+    get:
+      description: Returns all customers from the system
+      operationId: findCustomers
+      parameters:
+        - name: corporate
+          in: query
+          description: whether to return onl corporate or private customers
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: customer response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Creates a new customer in the store. Duplicates are allowed
+      operationId: addCustomer
+      requestBody:
+        description: Customer to add to the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCustomer'
+      responses:
+        '200':
+          description: customer response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /customers/{name}:
+    get:
+      description: Get customer by name
+      operationId: getCustomer
+      parameters:
+        - name: name
+          in: path
+          description: name of the customer
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: customer response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /customers/{name}/ping:
+    post:
+      description: Send a notification to a customer
+      operationId: ping
+      parameters:
+        - name: name
+          in: path
+          description: name of the customer
+          required: true
+          schema:
+            type: string
+        - name: priority
+          in: query
+          description: priority of the notification
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: customer response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /crm/v3/objects/{objectType}/batch/archive:
+    post:
+      tags:
+        - HubSpot
+      summary: Archive a batch of objects by ID
+      operationId: post-/crm/v3/objects/{objectType}/batch/archive_archive
+      parameters:
+        - name: objectType
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchInputSimplePublicObjectId'
+        required: true
+      responses:
+        '204':
+          description: No content
+          content: { }
+        default:
+          description: An error occurred.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+  /emoji.list:
+    get:
+      description: Lists custom emoji for a team.
+      externalDocs:
+        description: API method documentation
+        url: https://api.slack.com/methods/emoji.list
+      operationId: emoji_list
+      parameters:
+        - description: "Weird parameter 1"
+          in: query
+          name: "$foo"
+          required: false
+          schema:
+            type: boolean
+        - description: "Weird parameter 2"
+          in: query
+          name: "foo-bar"
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    ok: true
+              schema:
+                additionalProperties: true
+                description: This method either only returns a brief _OK_ response or a verbose schema is not available for this method.
+                properties:
+                  ok:
+                    enum:
+                      - true
+                    title: default success response
+                    type: boolean
+                required:
+                  - ok
+                title: Default success template
+                type: object
+          description: Typical success response
+        default:
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    error: invalid_auth
+                    ok: false
+              schema:
+                additionalProperties: true
+                description: This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.
+                properties:
+                  ok:
+                    enum:
+                      - false
+                    title: default failure response
+                    type: boolean
+                required:
+                  - ok
+                title: Default error template
+                type: object
+          description: Typical error response
+      tags:
+        - Slack
+components:
+  schemas:
+    Pet:
+      allOf:
+        - $ref: '#/components/schemas/NewPet'
+        - type: object
+          required:
+            - id
+          properties:
+            id:
+              type: integer
+              format: int64
+    NewPet:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        tag:
+          type: string
+    Food:
+      allOf:
+        - $ref: '#/components/schemas/NewFood'
+        - type: object
+          required:
+            - id
+          properties:
+            id:
+              type: integer
+              format: int64
+    NewFood:
+      type: object
+      required:
+        - name
+        - nutrition
+      properties:
+        name:
+          type: string
+        nutrition:
+          type: object
+          required:
+            - calories
+            - fat
+            - protein
+            - carbs
+          properties:
+            calories:
+              type: integer
+              format: int32
+            fat:
+              type: integer
+              format: int32
+            protein:
+              type: integer
+              format: int32
+            carbs:
+              type: integer
+              format: int32
+    Customer:
+      allOf:
+        - $ref: '#/components/schemas/NewCustomer'
+        - type: object
+          required:
+            - id
+          properties:
+            id:
+              type: integer
+              format: int64
+    NewCustomer:
+      type: object
+      required:
+        - name
+        - addresses
+      properties:
+        name:
+          type: string
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        bumpscosity:
+          description: The bumpscosity level
+    Address:
+      type: object
+      required:
+        - city
+        - house
+      properties:
+        city:
+          type: string
+        house:
+          type: object
+          required:
+            - number
+            - street
+          properties:
+            number:
+              type: integer
+              format: int32
+            street:
+              type: string
+            features:
+              type: object
+              properties:
+                garages:
+                  type: integer
+                  format: int32
+                pool:
+                  type: boolean
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    BatchInputSimplePublicObjectId:
+      required:
+        - inputs
+      type: object
+      properties:
+        inputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimplePublicObjectId'
+    SimplePublicObjectId:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
+    OpenID:
+      type: openIdConnect
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://example.com/oauth/authorize
+          tokenUrl: https://example.com/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants access to admin operations

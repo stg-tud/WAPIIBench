@@ -1,0 +1,530 @@
+{
+  "samples": [
+    {
+      "task": "Create a secondary calendar with summary \"Test Calendar\" and time zone \"America/Los_Angeles\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "summary": "Test Calendar",
+          "timeZone": "America/Los_Angeles"
+        }
+      }
+    },
+    {
+      "task": "Delete a secondary calendar with calendar ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get metadata for a calendar with calendar ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update metadata for a calendar with calendar ID \"<calendarId>\", setting the summary to \"Updated Calendar\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "summary": "Updated Calendar"
+        }
+      }
+    },
+    {
+      "task": "Partially update metadata for a calendar with calendar ID \"<calendarId>\", setting the location to \"New York City\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>",
+        "method": "patch",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "location": "New York City"
+        }
+      }
+    },
+    {
+      "task": "Get the access control list for a calendar with calendar ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create an access control rule for a calendar with calendar ID \"<calendarId>\" granting \"reader\" access to the user with email address \"user@example.com\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "role": "reader",
+          "scope": {
+            "type": "user",
+            "value": "user@example.com"
+          }
+        }
+      }
+    },
+    {
+      "task": "Watch for changes to ACL resources for a calendar with ID \"<calendarId>\". Create a channel with ID \"channel-id\" in which notifications are delivered via web_hook to https://example.com/webhook.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl/watch",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "id": "channel-id",
+          "type": "web_hook",
+          "address": "https://example.com/webhook"
+        }
+      }
+    },
+    {
+      "task": "Delete an access control rule with ID \"<ruleId>\" for a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl/<ruleId>",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get an access control rule with ID \"<ruleId>\" for a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl/<ruleId>",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update an access control rule with ID \"<ruleId>\" for a calendar with ID \"<calendarId>\", granting \"writer\" access.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl/<ruleId>",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "role": "writer"
+        }
+      }
+    },
+    {
+      "task": "Partially update an access control rule with ID \"<ruleId>\" for a calendar with ID \"<calendarId>\", setting the role to \"owner\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/acl/<ruleId>",
+        "method": "patch",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "role": "owner"
+        }
+      }
+    },
+    {
+      "task": "Clear all events on a primary calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/clear",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get all events on a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Create a new event with summary \"Test Event\" on a calendar with ID \"<calendarId>\". The event starts at 2024-03-05T09:00:00-08:00 and ends at 2024-03-05T10:00:00-08:00.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "summary": "Test Event",
+          "start": {
+            "dateTime": "2024-03-05T09:00:00-08:00"
+          },
+          "end": {
+            "dateTime": "2024-03-05T10:00:00-08:00"
+          }
+        }
+      }
+    },
+    {
+      "task": "Import an existing event to a calendar with ID \"<calendarId>\". The event starts at 2024-03-06T09:00:00-08:00 and ends at 2024-03-06T10:00:00-08:00 and has iCalUID \"<iCalUID>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/import",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "start": {
+            "dateTime": "2024-03-06T09:00:00-08:00"
+          },
+          "end": {
+            "dateTime": "2024-03-06T10:00:00-08:00"
+          },
+          "iCalUID": "<iCalUID>"
+        }
+      }
+    },
+    {
+      "task": "Quick-add an event with the text \"Appointment at 10am tomorrow\" to a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/quickAdd",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "text": "Appointment at 10am tomorrow"
+        }
+      }
+    },
+    {
+      "task": "Watch for changes to events on a calendar with ID \"<calendarId>\". Deliver notifications via web_hook to https://example.com/webhook thorough a channel with ID \"channel-id\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/watch",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "id": "channel-id",
+          "type": "web_hook",
+          "address": "https://example.com/webhook"
+        }
+      }
+    },
+    {
+      "task": "Delete an event with ID \"<eventId>\" on a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/<eventId>",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get details of an event with ID \"<eventId>\" on a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/<eventId>",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update an event with ID \"<eventId>\" on a calendar with ID \"<calendarId>\", changing the summary to \"Updated Event\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/<eventId>",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "summary": "Updated Event"
+        }
+      }
+    },
+    {
+      "task": "Partially update an event with ID \"<eventId>\" on a calendar with ID \"<calendarId>\", changing the description to \"This is an updated description.\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/<eventId>",
+        "method": "patch",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "description": "This is an updated description."
+        }
+      }
+    },
+    {
+      "task": "Get all instances of a recurring event with ID \"<eventId>\" on a calendar with ID \"<calendarId>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/<eventId>/instances",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Move an event with ID \"<eventId>\" from a calendar with ID \"<calendarId>\" to a calendar with ID \"<destination>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/<calendarId>/events/<eventId>/move",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        },
+        "params": {
+          "destination": "<destination>"
+        }
+      }
+    },
+    {
+      "task": "Stop watching a channel with ID \"channel-id\" and resource ID \"resource-id\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/channels/stop",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "id": "channel-id",
+          "resourceId": "resource-id"
+        }
+      }
+    },
+    {
+      "task": "Get color definitions for calendars and events.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/colors",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Query for free/busy information for calendars with IDs \"<calendarId1>\" and \"<calendarId2>\" between 2024-03-10T00:00:00Z and 2024-03-17T00:00:00Z.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/freeBusy",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "timeMin": "2024-03-10T00:00:00Z",
+          "timeMax": "2024-03-17T00:00:00Z",
+          "items": [
+            {
+              "id": "<calendarId1>"
+            },
+            {
+              "id": "<calendarId2>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "Get the user's calendar list.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Insert an existing calendar with ID \"<calendarId>\" to the user's calendar list.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "id": "<calendarId>"
+        }
+      }
+    },
+    {
+      "task": "Watch for changes to the user's calendar list and send notifications through a channel with ID \"channel-id\" with a web_hook https://example.com/webhook.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "id": "channel-id",
+          "type": "web_hook",
+          "address": "https://example.com/webhook"
+        }
+      }
+    },
+    {
+      "task": "Delete a calendar with ID \"<calendarId>\" from the user's calendar list.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/<calendarId>",
+        "method": "delete",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Get a calendar with ID \"<calendarId>\" from the user's calendar list.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/<calendarId>",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Update a calendar with ID \"<calendarId>\" on the user's calendar list, setting the summaryOverride to \"My Calendar\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/<calendarId>",
+        "method": "put",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "summaryOverride": "My Calendar"
+        }
+      }
+    },
+    {
+      "task": "Partially update a calendar with ID \"<calendarId>\" on the user's calendar list to make it show up in the calendar UI.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/<calendarId>",
+        "method": "patch",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "selected": true
+        }
+      }
+    },
+    {
+      "task": "Get all user settings.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/settings",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    },
+    {
+      "task": "Watch for changes to Settings resources for address https://example.com/webhook of type web_hook with the id channel-id.",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/settings/watch",
+        "method": "post",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer <token>"
+        },
+        "data": {
+          "id": "channel-id",
+          "type": "web_hook",
+          "address": "https://example.com/webhook"
+        }
+      }
+    },
+    {
+      "task": "Get a user setting with ID \"<setting>\".",
+      "config": {
+        "url": "https://www.googleapis.com/calendar/v3/users/me/settings/<setting>",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Authorization": "Bearer <token>"
+        }
+      }
+    }
+  ],
+  "api": "google_calendar_v3",
+  "model": "gemini-1.5-pro"
+}

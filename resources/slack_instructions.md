@@ -1,0 +1,1 @@
+Note that Slack has deprecated passing access tokens as regular parameters. Use the `Authorization` header instead. Also, data with media type `application/x-www-form-urlencoded` can now also be sent as `application/json`. So you may vary the `Content-Type` header, but if you do so, include this information in the task description.
