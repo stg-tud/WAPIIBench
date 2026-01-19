@@ -1,8 +1,8 @@
 # WAPIIBench
 
 A benchmark for web API integration code generation. For more information, check out our AIware 2025
-paper [Benchmarking Web API Integration Code Generation](https://arxiv.org/abs/2509.20172). An appendix to the paper and
-all evaluation results are provided in our [artifact](https://doi.org/10.5281/zenodo.13758414).
+paper [Benchmarking Web API Integration Code Generation](https://arxiv.org/abs/2509.20172v5). An appendix to the paper
+and all evaluation results are provided in our [artifact](https://doi.org/10.5281/zenodo.17607587).
 
 ## Project Overview
 
@@ -18,7 +18,7 @@ API-specific subsets: `data/synthetic/{api}/test_data_corrected.json`
 
 Codes, configs, logs, results: `data/generated/{model}/{api}/{setup}/{setting}/`
 
-Aggregated results: `data/generated/{model}/all/{setup}/{setting}/test_results_{setting}.json`
+Aggregated results: `data/generated/{model}/all/{setup}/{setting}/results.json`
 
 Data visualization: [wapiibench/export_results.py](wapiibench/export_results.py)
 
